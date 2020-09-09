@@ -10,16 +10,23 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@ui5/webcomponents-fiori": "^1.0.0-rc.8",
+    "@ui5/webcomponents-react": "^0.10.8",
+    "cross-var": "^1.1.0",
+    "dotenv-cli": "^3.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "typescript": "^4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cf:login": "dotenv -- cross-var cf login -a %CF_HOST% -u %CF_EMAIL% -p %CF_PASS% -o %CF_ORG% -s %CF_SPACE%",
+    "cf:push": "cf push --random-route",
+    "cf:deploy": "yarn build && yarn cf:login && yarn cf:push"
   },
   "eslintConfig": {
     "extends": "react-app"
